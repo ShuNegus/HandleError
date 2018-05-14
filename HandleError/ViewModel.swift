@@ -45,8 +45,8 @@ class ViewModel: ViewModelType {
             .disposed(by: input.disposeBag)
     
         serverErrorTracker
-            .map({ $0.failureReason })
-            .drive(router.rx.errorMessage)
+            .map({ ($0.failureReason, $0.recoverySuggestion) })
+            .drive(router.rx.errorPresentable)
             .disposed(by: input.disposeBag)
         
         return Output(

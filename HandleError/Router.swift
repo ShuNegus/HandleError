@@ -13,18 +13,19 @@ import RxSwift
 class Router: ReactiveCompatible {
     var view: UIViewController!
     
-    func presentErrorWithMessage(_ message: String?) {
+    func presentErrorWithMessage(_ reason: String?, suggestion: String?) {
         let alertVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Alert") as! AlertViewController
-        alertVC.errorMessage = message
+        alertVC.reasonMessage = reason
+        alertVC.suggestionMessage = suggestion
         view.present(alertVC, animated: true)
     }
 }
 
 extension Reactive where Base: Router {
     
-    var errorMessage: Binder<String?> {
-        return Binder(self.base) { router, text in
-            router.presentErrorWithMessage(text)
+    var errorPresentable: Binder<(String?, String?)> {
+        return Binder(self.base) { router, error  in
+            router.presentErrorWithMessage(error.0, suggestion: error.1)
         }
     }
     
