@@ -20,6 +20,9 @@
 		17DD6DC120A5C8280022E781 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD6DC020A5C8280022E781 /* Errors.swift */; };
 		6CEA435EC5CCE0B5865B0101 /* Pods_HandleError.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034CA0EA42DFBA87DD9DB51F /* Pods_HandleError.framework */; };
 		BE94206920A9B6E500AD4142 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94206820A9B6E500AD4142 /* UIView+Ext.swift */; };
+		BE94206B20A9CD2F00AD4142 /* Data+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94206A20A9CD2F00AD4142 /* Data+Ext.swift */; };
+		BE94206D20A9CE6700AD4142 /* ServerError.json in Resources */ = {isa = PBXBuildFile; fileRef = BE94206C20A9CE6700AD4142 /* ServerError.json */; };
+		BE94206F20A9CF5500AD4142 /* AuthError.json in Resources */ = {isa = PBXBuildFile; fileRef = BE94206E20A9CF5500AD4142 /* AuthError.json */; };
 		BE99D11C20A780CD00C414B7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE99D11B20A780CD00C414B7 /* Router.swift */; };
 		BE99D11E20A7840100C414B7 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE99D11D20A7840100C414B7 /* AlertViewController.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +45,9 @@
 		746BF2DF44FCF6C5FFA2F747 /* Pods-HandleError.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HandleError.release.xcconfig"; path = "Pods/Target Support Files/Pods-HandleError/Pods-HandleError.release.xcconfig"; sourceTree = "<group>"; };
 		9FE59E60EA01E9291349CE5D /* Pods-HandleError.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HandleError.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HandleError/Pods-HandleError.debug.xcconfig"; sourceTree = "<group>"; };
 		BE94206820A9B6E500AD4142 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		BE94206A20A9CD2F00AD4142 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
+		BE94206C20A9CE6700AD4142 /* ServerError.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ServerError.json; sourceTree = SOURCE_ROOT; };
+		BE94206E20A9CF5500AD4142 /* AuthError.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AuthError.json; sourceTree = SOURCE_ROOT; };
 		BE99D11B20A780CD00C414B7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		BE99D11D20A7840100C414B7 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +101,8 @@
 				BE99D11B20A780CD00C414B7 /* Router.swift */,
 				17DD6DAF20A5C7600022E781 /* ViewController.swift */,
 				179CF9EF20A5D38000E4C045 /* ViewModel.swift */,
+				BE94206E20A9CF5500AD4142 /* AuthError.json */,
+				BE94206C20A9CE6700AD4142 /* ServerError.json */,
 				17DD6DB920A5C7610022E781 /* Info.plist */,
 				17DD6DB420A5C7610022E781 /* Assets.xcassets */,
 				BE99D11D20A7840100C414B7 /* AlertViewController.swift */,
@@ -106,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				BE94206820A9B6E500AD4142 /* UIView+Ext.swift */,
+				BE94206A20A9CD2F00AD4142 /* Data+Ext.swift */,
 				179CF9ED20A5D0B700E4C045 /* Observable+Ext.swift */,
 				179CF9EB20A5D03000E4C045 /* ErrorTracker.swift */,
 				17DD6DC020A5C8280022E781 /* Errors.swift */,
@@ -191,7 +200,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE94206F20A9CF5500AD4142 /* AuthError.json in Resources */,
 				17DD6DB820A5C7610022E781 /* LaunchScreen.storyboard in Resources */,
+				BE94206D20A9CE6700AD4142 /* ServerError.json in Resources */,
 				17DD6DB520A5C7610022E781 /* Assets.xcassets in Resources */,
 				17DD6DB320A5C7600022E781 /* Main.storyboard in Resources */,
 			);
@@ -225,11 +236,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HandleError/Pods-HandleError-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
@@ -248,6 +265,7 @@
 				17DD6DB020A5C7600022E781 /* ViewController.swift in Sources */,
 				BE94206920A9B6E500AD4142 /* UIView+Ext.swift in Sources */,
 				17DD6DC120A5C8280022E781 /* Errors.swift in Sources */,
+				BE94206B20A9CD2F00AD4142 /* Data+Ext.swift in Sources */,
 				17DD6DAE20A5C7600022E781 /* AppDelegate.swift in Sources */,
 				BE99D11E20A7840100C414B7 /* AlertViewController.swift in Sources */,
 				179CF9EC20A5D03000E4C045 /* ErrorTracker.swift in Sources */,

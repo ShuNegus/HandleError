@@ -37,6 +37,15 @@ struct Errors {
         case noCache
     }
     
+    static func errorWithCode(_ code: Int, message: String, suggestion: String?) -> AppError {
+        switch code {
+        case 7:
+            return Auth.wrongPassword
+        default:
+            return ServerError.error(message: message, suggestion: suggestion)
+        }
+    }
+    
 }
 
 // Слайд
